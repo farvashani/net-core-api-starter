@@ -1,0 +1,13 @@
+language: csharp
+solution: Seed.sln
+os: linux
+dotnet: "2.0.0"
+mono: none
+install: dotnet restore
+script:
+  - dotnet build --configuration release
+  - dotnet test Seed.Domain.Tests/Seed.Domain.Tests.csproj --configuration release
+  - dotnet test Seed.Infrastructure.Tests/Seed.Infrastructure.Tests.csproj --configuration release
+  - dotnet test Seed.Api.Tests/Seed.Api.Tests.csproj --configuration release
+  - dotnet test Seed.Api.IntegrationTests/Seed.Api.IntegrationTests.csproj --configuration release
+  - dotnet test Seed.Data.Tests/Seed.Data.Tests.csproj --configuration release
